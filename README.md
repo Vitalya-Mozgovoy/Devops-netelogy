@@ -6,6 +6,10 @@
 Исключить файлы в каталогах с названием override.tf и override.tf.json
 Игнорировать файлы .terraformrc и файл с расширением terraformrc.jcs
 
+Изменил файл для нового комита из IDE
+
+
+
 
 
 
