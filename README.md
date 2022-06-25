@@ -377,3 +377,71 @@ vagrant@vagrant:~$ ulimit -u
 systemctl show --property DefaultTasksMax изменить данную переменную можно в файле /etc/systemd/system.conf
 Переменная UserTasksMax в файле /etc/systemd/logind.conf позволяет установить ограничение по максимальному 
 количеству процессов на уровне пользователей
+
+### Домашнее задание к занятию "3.5. Файловые системы"
+
+1. Узнайте о sparse (разряженных) файлах.
+Ответ: Разреженные файлы - это файлы, для которых выделяется пространство на диске только для участков с 
+ненулевыми данными. Список всех "дыр" хранится в метаданных ФС и используется при операциях с файлами. В результате 
+получается, что разреженный файл занимает меньше места на диске (более эффективное использование дискового пространства)
+2. Могут ли файлы, являющиеся жесткой ссылкой на один объект, иметь разные права доступа и владельца? Почему?
+Ответ: Не могут, так жесткие ссылки имеют один и тот же inode (объект, который содержит метаданные файла).
+3. Сделайте vagrant destroy на имеющийся инстанс Ubuntu. Замените содержимое Vagrantfile следующим. Данная конфигурация
+создаст новую виртуальную машину с двумя дополнительными неразмеченными дисками по 2.5 Гб.
+Ответ: [скриншот_1](https://drive.google.com/file/d/113vuOmeSze1oLQu3gTFAOZ_BRlHsGwzc/view?usp=sharing)
+4. Используя fdisk, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.
+Ответ: [скриншот_2](https://drive.google.com/file/d/166XDTxVA7MK0N23k3IHHtLnINbaXRwFI/view?usp=sharing)
+5. Используя sfdisk, перенесите данную таблицу разделов на второй диск.
+Ответ: [скриншот_3](https://drive.google.com/file/d/1NRm-FFxwJYGi0tIeTKkqU2Bs09_m5FlH/view?usp=sharing)
+6. Соберите mdadm RAID1 на паре разделов 2 Гб.
+Ответ: [скриншот_4](https://drive.google.com/file/d/1TScV0kHjim815UgL7BmSECM1Kl8d5L4s/view?usp=sharing)
+7. Соберите mdadm RAID0 на второй паре маленьких разделов.
+Ответ: [скриншот_5 ](https://drive.google.com/file/d/1_v8mUh9aoAu6spUERnfi9kaf2N1mqZAu/view?usp=sharing)
+8. Создайте 2 независимых PV на получившихся md-устройствах.
+Ответ: [скриншот_6](https://drive.google.com/file/d/18NqJZmgnZtuDlxnuucsZp4GewCWjtKsK/view?usp=sharing)
+9. Создайте общую volume-group на этих двух PV.
+Ответ: [скриншот_7](https://drive.google.com/file/d/1o7rhjmKvNJAh79rj2Ak5ia7OiWpeFJAz/view?usp=sharing)
+10. Создайте LV размером 100 Мб, указав его расположение на PV с RAID0.
+Ответ: [скриншот_8](https://drive.google.com/file/d/1cmk_E-9xlnfyDC6gQzrELojVLI2WjwY9/view?usp=sharing)
+11. Создайте mkfs.ext4 ФС на получившемся LV.
+Ответ: [скриншот_9](https://drive.google.com/file/d/1FE22SR4J_4E2Th0n1oey5KHgTirLLQwd/view?usp=sharing) 
+12. Смонтируйте этот раздел в любую директорию, например, /tmp/new.
+Ответ: [скриншот_10 ](https://drive.google.com/file/d/150fcJWJbSbjAaR_SfNhhdWZWddvUsS5B/view?usp=sharing)
+13. Поместите туда тестовый файл, например wget https://mirror.yandex.ru/ubuntu/ls-lR.gz -O /tmp/new/test.gz.
+Ответ: [скриншот_11](https://drive.google.com/file/d/1KZI5466d8XsE3JpZyvBlLoY7qdOt8Vo1/view?usp=sharing)
+14. Прикрепите вывод lsblk.
+Ответ: [скриншот_12](https://drive.google.com/file/d/1z0VxucgHkh5qMLStf1bL4Hg7fo105u2Y/view?usp=sharing)
+15. Протестируйте целостность файла:
+Ответ: [скриншот_13](https://drive.google.com/file/d/1KbOVGUT4S1xco590JB0s66uW4p1fPGv2/view?usp=sharing)
+16. Используя pvmove, переместите содержимое PV с RAID0 на RAID1.
+Ответ: 
+
+vagrant@vagrant:~$ sudo pvmove /dev/md1 /dev/md0  
+  /dev/md1: Moved: 16.00%  
+  /dev/md1: Moved: 100.00%  
+vagrant@vagrant:~$ lsblk  
+NAME                 MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT  
+sda                    8:0    0   64G  0 disk  
+├─sda1                 8:1    0  512M  0 part  /boot/efi   
+├─sda2                 8:2    0    1K  0 part   
+└─sda5                 8:5    0 63.5G  0 part   
+  ├─vgvagrant-root   253:0    0 62.6G  0 lvm   /   
+  └─vgvagrant-swap_1 253:1    0  980M  0 lvm   [SWAP]    
+sdb                    8:16   0  2.5G  0 disk    
+├─sdb1                 8:17   0    2G  0 part    
+│ └─md0                9:0    0    2G  0 raid1    
+│   └─VG1-LV1        253:2    0  100M  0 lvm   /tmp/new    
+└─sdb2                 8:18   0  511M  0 part    
+  └─md1                9:1    0 1018M  0 raid0    
+sdc                    8:32   0  2.5G  0 disk    
+├─sdc1                 8:33   0    2G  0 part    
+│ └─md0                9:0    0    2G  0 raid1     
+│   └─VG1-LV1        253:2    0  100M  0 lvm   /tmp/new    
+└─sdc2                 8:34   0  511M  0 part    
+  └─md1                9:1    0 1018M  0 raid0`    
+17. Сделайте --fail на устройство в вашем RAID1 md.   
+Ответ: [скриншот_17](https://drive.google.com/file/d/15hHPItrTJlSV2D2giZ4zbiXYDB7Jz9ce/view?usp=sharing)
+18. Подтвердите выводом dmesg, что RAID1 работает в деградированном состоянии.
+Ответ: [скриншот_18](https://drive.google.com/file/d/17jJ76rAGxFxa0XSgI7nfgCIoBEgpeWvD/view?usp=sharing)
+19. Протестируйте целостность файла, несмотря на "сбойный" диск он должен продолжать быть доступен
+Ответ [скриншот_19](https://drive.google.com/file/d/1_OVQ9yhG3mB9cAVGor9TIKl9hbmRH3gT/view?usp=sharing)
