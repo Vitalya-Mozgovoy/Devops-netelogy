@@ -14,11 +14,12 @@
 После перезагрузки результат тот же, сервис работает.
 2. Ознакомьтесь с опциями node_exporter и выводом /metrics по-умолчанию.  
 Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.  
-Ответ:  [скрин_3](https://drive.google.com/file/d/1EVefgNQupVkGvA1JmGlRg-WizITuaITW/view?usp=sharing)
+Ответ:  [скрин_3](https://drive.google.com/file/d/1EVefgNQupVkGvA1JmGlRg-WizITuaITW/view?usp=sharing)  
+
 CPU: system, user покажут время, использованное системой и программами; слишком высокий steal будет означать,
    что гипервизор перегружен и процессор занят другими ВМ; iowait - поможет отследить, всё ли в порядке с дисковой системой.  
-MEM: MemTotal - количество памяти; MemFree и MemAvailable - свободная и доступная память [скрин_4](https://drive.google.com/file/d/1EjqBeu-inQeVwOv5w8mlCrf_ynUk6mba/view?usp=sharing)
-DISK: size_bytes и avail_bytes покажут объём и свободное место; readonly=1 может говорить о проблемах ФС [скрин_5](https://drive.google.com/file/d/1f9KMJed4hDh3Umm1InM8Q_HKwagBYLRR/view?usp=sharing)
+MEM: MemTotal - количество памяти; MemFree и MemAvailable - свободная и доступная память [скрин_4](https://drive.google.com/file/d/1EjqBeu-inQeVwOv5w8mlCrf_ynUk6mba/view?usp=sharing)  
+DISK: size_bytes и avail_bytes покажут объём и свободное место; readonly=1 может говорить о проблемах ФС [скрин_5](https://drive.google.com/file/d/1f9KMJed4hDh3Umm1InM8Q_HKwagBYLRR/view?usp=sharing)  
 3. Установите в свою виртуальную машину Netdata. Воспользуйтесь готовыми пакетами для установки 
 (sudo apt install -y netdata). После успешной установки:  
  в конфигурационном файле /etc/netdata/netdata.conf в секции [web] замените значение с localhost на bind to = 0.0.0.0,  
