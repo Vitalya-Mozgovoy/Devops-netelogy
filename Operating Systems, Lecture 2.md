@@ -11,11 +11,11 @@
 поднимается.  
 Ответ: Установил настроил node_exporter [скрин_1 ](https://drive.google.com/file/d/1nYuBTkPdTafEc1seiHw_HXEzurp7740v/view?usp=sharing) 
 [скрин_2](https://drive.google.com/file/d/1zs80gTY5sBS6gNKV3VrANajE7U48bO1c/view?usp=sharing)  
-После перезагрузки результат тот же, сервис работает.
+После перезагрузки результат тот же, сервис работает.  
+
 2. Ознакомьтесь с опциями node_exporter и выводом /metrics по-умолчанию.  
 Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.  
-Ответ:  [скрин_3](https://drive.google.com/file/d/1EVefgNQupVkGvA1JmGlRg-WizITuaITW/view?usp=sharing)  
-
+Ответ:  [скрин_3](https://drive.google.com/file/d/1EVefgNQupVkGvA1JmGlRg-WizITuaITW/view?usp=sharing)
 CPU: system, user покажут время, использованное системой и программами; слишком высокий steal будет означать,
    что гипервизор перегружен и процессор занят другими ВМ; iowait - поможет отследить, всё ли в порядке с дисковой системой.  
 MEM: MemTotal - количество памяти; MemFree и MemAvailable - свободная и доступная память [скрин_4](https://drive.google.com/file/d/1EjqBeu-inQeVwOv5w8mlCrf_ynUk6mba/view?usp=sharing)  
