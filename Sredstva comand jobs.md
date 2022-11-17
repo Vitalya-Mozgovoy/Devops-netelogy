@@ -51,7 +51,7 @@
 3. В рамках предпоследнего задания был создан ec2 при помощи ресурса `aws_instance`. 
 Создайте аналогичный инстанс при помощи найденного модуля.   
 
-[скрин](https://drive.google.com/file/d/1lZY_1UzSE0OkEkgPLr-koZr_SHXX0qKU/view?usp=sharing)
+[скрин](https://drive.google.com/file/d/1HU3kXYZZO7EC5-n0UzjeMVWSFxthCRNS/view?usp=sharing)
 
 
 В качестве результата задания приложите ссылку на созданный блок конфигураций.  
