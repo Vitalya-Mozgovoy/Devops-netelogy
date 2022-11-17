@@ -35,7 +35,7 @@
 2. Необходимо включить автопланирование при изменении любых файлов `*.tf`.
 
 В качестве результата приложите ссылку на файлы `server.yaml` и `atlantis.yaml`.
-![скрин](https://drive.google.com/file/d/1lZY_1UzSE0OkEkgPLr-koZr_SHXX0qKU/view?usp=sharing)
+[скрин](https://drive.google.com/file/d/1lZY_1UzSE0OkEkgPLr-koZr_SHXX0qKU/view?usp=sharing)
 [Atlantis files](atlantis)
 
 ## Задача 3. Знакомство с каталогом модулей. 
