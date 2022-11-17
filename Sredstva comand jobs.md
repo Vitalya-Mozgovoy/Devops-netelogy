@@ -14,7 +14,7 @@
 
 В качестве результата задания приложите снимок экрана с успешным применением конфигурации.
 
-<img src="Devops-netelogy\Image\terraform1.jpg" width="900"/>
+<img src="Devops-netelogy\Image\terraform1.jpg"/>
 
 [Terraform files](https://github.com/Vitalya-Mozgovoy/Devops-netelogy/tree/main/terraform)
 
