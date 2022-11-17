@@ -35,8 +35,9 @@
 2. Необходимо включить автопланирование при изменении любых файлов `*.tf`.
 
 В качестве результата приложите ссылку на файлы `server.yaml` и `atlantis.yaml`.
+
 [скрин](https://drive.google.com/file/d/1lZY_1UzSE0OkEkgPLr-koZr_SHXX0qKU/view?usp=sharing)
-[Atlantis files](atlantis)
+[Atlantis files] (atlantis)
 
 ## Задача 3. Знакомство с каталогом модулей. 
 
@@ -50,7 +51,7 @@
 3. В рамках предпоследнего задания был создан ec2 при помощи ресурса `aws_instance`. 
 Создайте аналогичный инстанс при помощи найденного модуля.   
 
-<img src="C:\Users\Виталий Работа\Devops-netelogy\Image\teamwork2.jpg" width="900"/>
+[скрин](https://drive.google.com/file/d/1lZY_1UzSE0OkEkgPLr-koZr_SHXX0qKU/view?usp=sharing)
 
 
 В качестве результата задания приложите ссылку на созданный блок конфигураций.  
