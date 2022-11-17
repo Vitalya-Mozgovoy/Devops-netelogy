@@ -36,8 +36,9 @@
 
 В качестве результата приложите ссылку на файлы `server.yaml` и `atlantis.yaml`.
 
-[скрин](https://drive.google.com/file/d/1lZY_1UzSE0OkEkgPLr-koZr_SHXX0qKU/view?usp=sharing)
-[Atlantis files] (atlantis)
+[скрин](https://drive.google.com/file/d/1lZY_1UzSE0OkEkgPLr-koZr_SHXX0qKU/view?usp=sharing)  
+
+[Atlantis files](https://github.com/Vitalya-Mozgovoy/Devops-netelogy/tree/main/atlantis)
 
 ## Задача 3. Знакомство с каталогом модулей. 
 
