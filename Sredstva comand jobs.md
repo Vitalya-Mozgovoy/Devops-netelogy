@@ -14,7 +14,7 @@
 
 В качестве результата задания приложите снимок экрана с успешным применением конфигурации.
 
-<img src="Devops-netelogy\Image\terraform1.jpg"/>
+<img src="C:\Users\Виталий Работа\Devops-netelogy\Image\terraform1.jpg"/>
 
 [Terraform files](https://github.com/Vitalya-Mozgovoy/Devops-netelogy/tree/main/terraform)
 
@@ -50,7 +50,7 @@
 3. В рамках предпоследнего задания был создан ec2 при помощи ресурса `aws_instance`. 
 Создайте аналогичный инстанс при помощи найденного модуля.   
 
-<img src="Devops-netelogy\Image\teamwork2.jpg" width="900"/>
+<img src="C:\Users\Виталий Работа\Devops-netelogy\Image\teamwork2.jpg" width="900"/>
 
 
 В качестве результата задания приложите ссылку на созданный блок конфигураций.  
